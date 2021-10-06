@@ -3,7 +3,7 @@ package com.example.curdoperation;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "productt")
+@Table(name = "product_details")
 public class product
 {
 

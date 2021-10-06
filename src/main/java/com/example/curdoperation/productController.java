@@ -21,23 +21,23 @@ public class productController {
     @GetMapping("/products/{id}")
     public ResponseEntity<product> get(@PathVariable Integer id) {    //print the path variable value;
         try {
-            product productt = service.get(id);
-            return new ResponseEntity<product>(productt, HttpStatus.OK);
+            product product_details = service.get(id);
+            return new ResponseEntity<product>(product_details, HttpStatus.OK);
         } catch (NoSuchElementException e) {
             return new ResponseEntity<product>(HttpStatus.NOT_FOUND);
         }
     }
 
-    @PostMapping("/products")
-    public void add(@RequestBody product productt) {
-        service.save(productt);
+    @PostMapping("/add_product")
+    public void add(@RequestBody product product_details) {
+        service.save(product_details);
     }
 
-    @PutMapping("/products/{id}")
-    public ResponseEntity<?> update(@RequestBody product productt, @PathVariable Integer id) {
+    @PutMapping("/update/{id}")
+    public ResponseEntity<?> update(@RequestBody product product_details, @PathVariable Integer id) {
         try {
             product existProduct = service.get(id);
-            service.save(productt);
+            service.save(existProduct);
             return new ResponseEntity<>(HttpStatus.OK);
         } catch (NoSuchElementException e) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);

@@ -16,8 +16,8 @@ public class ProductService {
         return repo.findAll();
     }
 
-    public void save(product productt) {
-        repo.save(productt);
+    public void save(product product_details) {
+        repo.save(product_details);
     }
 
     public product get(Integer id) {
