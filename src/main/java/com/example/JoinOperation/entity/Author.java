@@ -1,7 +1,5 @@
 package com.example.JoinOperation.entity;
-
 import lombok.*;
-
 import javax.persistence.*;
 import java.util.List;
 
@@ -11,14 +9,14 @@ import java.util.List;
 @Getter
 @Setter
 @Entity()
+@Table(name = "author")
 public class Author {
     @Id
     @Generated
     private int id;
     private String name;
     private String email;
-   // @OneToMany(mappedBy="author", cascade = CascadeType.ALL)
-  //  @OneToMany(targetEntity = Book.class,cascade = CascadeType.ALL)
-   // @JoinColumn(name = "book_ibfk_1", referencedColumnName = "id")
-   // private List<Book> book;
+    @OneToMany(targetEntity = Book.class,cascade = CascadeType.ALL)
+    @JoinColumn(name ="author_id",referencedColumnName = "id")
+    private List<Book> book;
 }

@@ -1,8 +1,6 @@
 package com.example.JoinOperation.entity;
 import lombok.*;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Data
 @AllArgsConstructor
